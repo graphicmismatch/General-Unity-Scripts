@@ -1,7 +1,7 @@
 using UnityEngine;
 
-public abstract class Singleton<T> : MonoBehaviour
-    where T:Singleton<T>
+public abstract class SingletonNonPersistent<T> : MonoBehaviour
+    where T:SingletonNonPersistent<T>
 {
 
     private static T _instance;
@@ -12,7 +12,6 @@ public abstract class Singleton<T> : MonoBehaviour
         if (_instance == null)
         {
             _instance = (T)this;
-            DontDestroyOnLoad(instance);
         }
         else {
             Destroy(gameObject);
